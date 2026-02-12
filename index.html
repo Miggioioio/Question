@@ -25,9 +25,11 @@
 </head>
 <body>
 
-<h1>Do you love me?</h1>
-<button onclick="showReally()">Yes ❤️</button>
-<button onclick="showReally()">Yes 😘</button>
+<h1 id="question">Do you love me?</h1>
+<div id="yesButtons">
+  <button onclick="showReally()">Yes ❤️</button>
+  <button onclick="showReally()">Yes 😘</button>
+</div>
 
 <div id="really" style="display:none;">
   <img id="customImage" src="" alt="">
@@ -44,20 +46,32 @@
 </div>
 
 <script>
+// Helper function to hide everything
+function hideAll() {
+  document.getElementById('question').style.display = 'none';
+  document.getElementById('yesButtons').style.display = 'none';
+  document.getElementById('really').style.display = 'none';
+  document.getElementById('reallyReally').style.display = 'none';
+  document.getElementById('valentine').style.display = 'none';
+}
+
 // First Yes clicked
 function showReally(){
+  hideAll();
   document.getElementById('really').style.display='block';
   document.getElementById('customImage').src='image1.jpg'; // first image
 }
 
 // Really? clicked
 function showReallyReally(){
+  hideAll();
   document.getElementById('reallyReally').style.display='block';
-  document.getElementById('customImage').src='image.jpg'; // second image
+  document.getElementById('customImage').src='image2.jpg'; // second image
 }
 
 // Really really? clicked
 function showValentine(){
+  hideAll();
   document.getElementById('valentine').style.display='block';
   createHearts();
 }
@@ -78,6 +92,3 @@ function createHearts(){
 
 </body>
 </html>
-
-
-

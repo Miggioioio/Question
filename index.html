@@ -3,9 +3,28 @@
 <head>
   <title>Valentine Quiz</title>
   <style>
-    body { text-align:center; font-family:sans-serif; margin-top:50px; background:#ffe6f0; }
-    button { padding:10px 20px; font-size:18px; margin:10px; cursor:pointer; border:none; border-radius:5px; background:#ff4d6d; color:white; }
-    #valentine h1 { font-size:40px; color:#ff1a75; animation: bounce 1s infinite alternate; }
+    body { 
+      text-align:center; 
+      font-family:sans-serif; 
+      margin:0; 
+      padding:0; 
+      background:#ffe6f0; 
+    }
+    button { 
+      padding:10px 20px; 
+      font-size:18px; 
+      margin:10px; 
+      cursor:pointer; 
+      border:none; 
+      border-radius:5px; 
+      background:#ff4d6d; 
+      color:white; 
+    }
+    #valentine h1 { 
+      font-size:40px; 
+      color:#ff1a75; 
+      animation: bounce 1s infinite alternate; 
+    }
     @keyframes bounce {
       0% { transform: scale(1); }
       50% { transform: scale(1.2); }
@@ -20,7 +39,21 @@
       0% { transform: translateY(0) rotate(0deg); opacity:1; }
       100% { transform: translateY(-500px) rotate(360deg); opacity:0; }
     }
-    img { max-width:300px; margin-top:20px; border-radius:10px; }
+    img { 
+      max-width:300px; 
+      margin-top:20px; 
+      border-radius:10px; 
+    }
+
+    /* Valentine div styling */
+    #valentine {
+      display:none;        /* hidden at first */
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      display:flex;        /* JS will set display:flex when showing */
+    }
   </style>
 </head>
 <body>
@@ -41,18 +74,12 @@
   <button onclick="showValentine()">Really really? 💖</button>
 </div>
 
-<div id="valentine" style="display:none; 
-     display:flex; 
-     flex-direction:column; 
-     justify-content:center; 
-     align-items:center; 
-     height:100vh;">
+<div id="valentine">
   <h1>Will you be my Valentine? 💖</h1>
 </div>
 
-
 <script>
-// Helper function to hide everything
+// Helper function to hide all main elements
 function hideAll() {
   document.getElementById('question').style.display = 'none';
   document.getElementById('yesButtons').style.display = 'none';
@@ -65,26 +92,26 @@ function hideAll() {
 function showReally(){
   hideAll();
   document.getElementById('really').style.display='block';
-  document.getElementById('customImage').src='image1.jpg'; // first image
+  document.getElementById('customImage').src='image1.jpg'; // replace with first image URL
 }
 
 // Really? clicked
 function showReallyReally(){
   hideAll();
   document.getElementById('reallyReally').style.display='block';
-  document.getElementById('customImage').src='image.jpg'; // second image
+  document.getElementById('customImage').src='image.jpg'; // replace with second image URL
 }
 
 // Really really? clicked
 function showValentine(){
   hideAll();
-  document.getElementById('valentine').style.display='block';
+  document.getElementById('valentine').style.display='flex';
   createHearts();
 }
 
 // Hearts animation
 function createHearts(){
-  for(let i=0;i<30;i++){
+  for(let i=0; i<30; i++){
     let heart = document.createElement('div');
     heart.className='heart';
     heart.style.left = Math.random()*window.innerWidth+'px';
@@ -98,5 +125,3 @@ function createHearts(){
 
 </body>
 </html>
-
-

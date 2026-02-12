@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Valentine</title>
+  <style>
+    body { text-align:center; font-family:sans-serif; margin-top:100px; background:#ffe6f0; }
+    button { padding:10px 20px; font-size:18px; margin:10px; cursor:pointer; border:none; border-radius:5px; background:#ff4d6d; color:white; }
+    #valentine h1 { font-size:40px; color:#ff1a75; animation: bounce 1s infinite alternate; }
+    @keyframes bounce {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+    .heart {
+      position: absolute;
+      font-size: 30px;
+      animation: float 3s linear infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); opacity:1; }
+      100% { transform: translateY(-500px) rotate(360deg); opacity:0; }
+    }
+  </style>
+</head>
+<body>
+
+<h1>Do you love me?</h1>
+<button onclick="showClickMe()">Yes ❤️</button>
+<button onclick="showClickMe()">Yes 😘</button>
+
+<div id="next" style="display:none;">
+  <button onclick="showValentine()">Click me 💌</button>
+</div>
+
+<div id="valentine" style="display:none;">
+  <h1>Will you be my Valentine? 💖</h1>
+</div>
+
+<script>
+function showClickMe(){
+  document.getElementById('next').style.display='block';
+}
+
+function showValentine(){
+  document.getElementById('valentine').style.display='block';
+  createHearts();
+}
+
+function createHearts(){
+  for(let i=0;i<30;i++){
+    let heart = document.createElement('div');
+    heart.className='heart';
+    heart.style.left = Math.random()*window.innerWidth+'px';
+    heart.style.animationDuration = (2 + Math.random()*3)+'s';
+    heart.innerText='❤️';
+    document.body.appendChild(heart);
+    setTimeout(()=> heart.remove(),5000);
+  }
+}
+</script>
+
+</body>
+</html>

@@ -45,14 +45,13 @@
       border-radius:10px; 
     }
 
-    /* Valentine div styling */
+    /* Valentine div styling - hidden at first */
     #valentine {
       display:none;        /* hidden at first */
       flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      display:flex;        /* JS will set display:flex when showing */
     }
   </style>
 </head>
@@ -105,7 +104,7 @@ function showReallyReally(){
 // Really really? clicked
 function showValentine(){
   hideAll();
-  document.getElementById('valentine').style.display='flex';
+  document.getElementById('valentine').style.display='flex'; // shows and centers
   createHearts();
 }
 

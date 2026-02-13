@@ -43,6 +43,9 @@
       max-width:300px; 
       margin-top:20px; 
       border-radius:10px; 
+      display:block;
+      margin-left:auto;
+      margin-right:auto;
     }
 
     /* Valentine div styling - hidden at first */
@@ -58,22 +61,23 @@
 <body>
 
 <h1 id="question">Do you love me?</h1>
+
+<!-- Buttons for first question -->
 <div id="yesButtons">
   <button onclick="showReally()">Yes ❤️</button>
   <button onclick="showReally()">Yes 😘</button>
 </div>
 
-<!-- First image and button -->
-<div id="really" style="display:none;">
-  <img id="image1" src="" alt="">
-  <br>
+<!-- Single image for both steps -->
+<img id="customImage" src="" alt="" style="display:none;">
+
+<!-- Second step button -->
+<div id="reallyButton" style="display:none;">
   <button onclick="showReallyReally()">Really? 💌</button>
 </div>
 
-<!-- Second image and button -->
-<div id="reallyReally" style="display:none;">
-  <img id="image2" src="" alt="">
-  <br>
+<!-- Third step button -->
+<div id="reallyReallyButton" style="display:none;">
   <button onclick="showValentine()">Really really? 💖</button>
 </div>
 
@@ -83,33 +87,36 @@
 </div>
 
 <script>
-// Helper function to hide all main elements
+// Hide all dynamic elements
 function hideAll() {
   document.getElementById('question').style.display = 'none';
   document.getElementById('yesButtons').style.display = 'none';
-  document.getElementById('really').style.display = 'none';
-  document.getElementById('reallyReally').style.display = 'none';
+  document.getElementById('customImage').style.display = 'none';
+  document.getElementById('reallyButton').style.display = 'none';
+  document.getElementById('reallyReallyButton').style.display = 'none';
   document.getElementById('valentine').style.display = 'none';
 }
 
 // First Yes clicked
 function showReally(){
   hideAll();
-  document.getElementById('really').style.display='block';
-  document.getElementById('image1').src='image1.jpg'; // replace with first image URL
+  document.getElementById('customImage').style.display='block';
+  document.getElementById('customImage').src='image1.jpg'; // replace with first image URL
+  document.getElementById('reallyButton').style.display='block';
 }
 
 // Really? clicked
 function showReallyReally(){
   hideAll();
-  document.getElementById('reallyReally').style.display='block';
-  document.getElementById('image2').src='image2.jpg'; // replace with second image URL
+  document.getElementById('customImage').style.display='block';
+  document.getElementById('customImage').src='image2.jpg'; // replace with second image URL
+  document.getElementById('reallyReallyButton').style.display='block';
 }
 
 // Really really? clicked
 function showValentine(){
   hideAll();
-  document.getElementById('valentine').style.display='flex'; // shows and centers
+  document.getElementById('valentine').style.display='flex';
   createHearts();
 }
 

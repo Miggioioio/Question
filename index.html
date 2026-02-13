@@ -63,16 +63,21 @@
   <button onclick="showReally()">Yes 😘</button>
 </div>
 
+<!-- First image and button -->
 <div id="really" style="display:none;">
-  <img id="customImage" src="" alt="">
+  <img id="image1" src="" alt="">
   <br>
   <button onclick="showReallyReally()">Really? 💌</button>
 </div>
 
+<!-- Second image and button -->
 <div id="reallyReally" style="display:none;">
+  <img id="image2" src="" alt="">
+  <br>
   <button onclick="showValentine()">Really really? 💖</button>
 </div>
 
+<!-- Valentine message -->
 <div id="valentine">
   <h1>Will you be my Valentine? 💖</h1>
 </div>
@@ -91,14 +96,14 @@ function hideAll() {
 function showReally(){
   hideAll();
   document.getElementById('really').style.display='block';
-  document.getElementById('customImage').src='image1.jpg'; // replace with first image URL
+  document.getElementById('image1').src='image1.jpg'; // replace with first image URL
 }
 
 // Really? clicked
 function showReallyReally(){
   hideAll();
   document.getElementById('reallyReally').style.display='block';
-  document.getElementById('customImage').src='image1.jpg'; // replace with second image URL
+  document.getElementById('image2').src='image2.jpg'; // replace with second image URL
 }
 
 // Really really? clicked
@@ -124,6 +129,3 @@ function createHearts(){
 
 </body>
 </html>
-
-
-
